@@ -1,0 +1,483 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+/* Customer Properties - Change Later */
+
+:root{
+    --ff-primary: 'Source Sans Pro', sans-seriff;
+    --ff-secondary: 'Source Code Pro', monospace;
+
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #0ff0e4;
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25), 
+          0.125em 0.125em 0.25em rgba(0, 0, 0, .15);
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+/* General Styles, changing the different styles */
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section{
+    padding: 5em 2em;
+}
+
+img{
+    display: block;
+    max-width: 90%;
+}
+
+
+strong{font-weight: var(--fw-bold);}
+
+:focus{
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+/* Buttons */
+.btn{
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+
+}
+
+.btn:hover{
+    transform: scale(1.2);
+}
+/* Typography, the different sizes for h1, h2... etc */
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1{ font-size: var(--fs-h1);}
+h2{ font-size: var(--fs-h2);}
+h3{ font-size: var(--fs-h3);}
+
+/* All the section titles */
+.section__title{
+    margin-bottom: .25em;
+}
+
+/* Hello, I am Fahad Edward words*/ 
+.section__title--intro{
+    font-weight: var(--fw-reg);
+}
+/* This makes the Fahad Edward always be in its own block below the Fahad Edward*/ 
+.section__title--intro strong{
+    display: block;
+}
+
+/* all of the subtitle section*/ 
+.section__subtitle{
+    margin: 0;
+    font-size: var(--fs-h3);   
+}
+
+/* Game Developer, Game Developer from Toronto words */ 
+.section__subtitle--intro,
+.section__subtitle--about{
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+    padding: .25em 1em;
+}
+
+.section__subtitle--intro{
+    display: inline-block;
+}
+
+/* Different Work Selections wods */ 
+.section__subtitle--work{
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 2em;
+}
+
+.section__title--contact{
+    color: var(--clr-light);
+    font-weight: var(--fw-bold);
+}
+/* header*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+.logo{
+    max-width: 150px;
+}
+
+.nav{
+    z-index: 100;
+    position:fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    
+    top: 0;
+    bottom: 0;
+    left:0;
+    right: 0;
+   
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+    
+}
+
+
+.nav__list{
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+}
+
+.nav__link{
+    color: var(--clr-light);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+}
+
+.nav__link:hover{
+    color: var(--clr-accent);
+}
+
+/* Button to open the navigation area */
+
+
+.nav-toggle{
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+
+}
+
+.nav-open .nav{
+   transform: translateX(0);
+}
+
+.nav-open .nav-toggle{
+    position: fixed;
+}
+
+.nav-open .hamburger{
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before{
+    transform: rotate(90deg) translateX(-6px);
+}
+
+
+.nav-open .hamburger::after{
+    opacity: 0;
+}
+.hamburger{
+   
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after{
+    background: var(--clr-accent);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+
+}
+
+
+.hamburger::before{top: 6px;}
+.hamburger::after{bottom: 6px;}
+
+
+
+
+
+/* Styling the intro section */
+
+.intro{
+    position: relative;
+}
+
+.intro__img{
+    box-shadow: var(--bs);
+}
+
+
+/* Putting the image next to the text */
+@media (min-width: 600px){
+    .intro {
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas:
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+
+    .intro__img{
+        grid-area: img;
+        min-width: 250px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .section__subtitle--intro{
+        align-self: start;
+        grid-column: -1 / 1;
+        grid-row: 2; 
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+    }
+}
+
+.my-services{
+    background-color: var(--clr-dark);
+    background-image: url(../img/serviceBG.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+    color:var(--clr-light);
+    text-align: center;
+}
+
+.section__title--services{
+    color: var(--clr-accent);
+    position: relative;
+}
+
+.section__title--services::after{
+    content: '';
+    display: block;
+    width: 3em;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background: var(--clr-light);
+    opacity: 0.3;
+}
+.services{
+    margin-bottom: 4em;
+}
+.service{
+    max-width: 500px;
+    margin: 0 auto;
+}
+@media(min-width: 800px){
+    .services{
+        display: flex;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .service + .service{
+        margin-left: 2em;
+    }
+}
+
+.about-me{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-me__img{
+    box-shadow: var(--bs);
+}
+/* Using grid-template areas, we can just define the sections with the 
+area titles that we've given them */
+@media (min-width: 600px){
+    .about-me{
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        grid-template-areas: 
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+    }
+
+    .section__title--about{
+        grid-column: title;
+    }
+
+    .section__subtitle--about{
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        left: -1em;
+        width: calc(100% + 2em);
+        padding-left: 1em;
+        padding-right: calc(200px + 4em);
+    }
+    .about-me__img{
+       grid-area: img;
+       position: relative;
+       z-index: 2;
+    }
+}
+
+/* The class for my work where all of the images and everything is stored */
+.my-work{
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+
+}
+
+/* We are creating a grid for the images
+then using repeat to create the different columns */
+.portfolio{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+  
+
+}
+
+/* The portfolio item (a href) */
+.portfolio__item{
+    overflow: hidden;
+    margin-bottom: 2em;
+}
+/* The portfolio image */
+.portfolio__img{
+    transition: 
+    transform 750ms cubic-bezier(.5, 0, .5, 1),
+    opacity 250ms linear;
+
+}
+
+.portfolio__item:focus{
+    position: relative;
+    z-index: 2;
+}
+/* Accessing the image and the href of the image*/
+.portfolio__img:hover, 
+.portfolio__item:focus .portfolio__img{
+    transform: scale(1.2);
+    opacity: .75;
+}
+
+/* Footer stylization */
+
+/* The entire footer including email and social links */ 
+.footer{
+    background: #111;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 1em 0;
+    font-size: var(--fs-h3);
+}
+/* The email of the website */ 
+.footer-link{
+    font-weight: var(--fw-bold);
+    padding-right: 1.5em;
+}
+
+/* Using the method below, we access all of the elements in the footer and change their colours */
+.footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* When hovering the footer-link(email) we'll underline it */
+.footer-link:hover{
+    text-decoration: underline;
+}
+
+/* When hovering over the email or the social links, the opactiy will go down
+to make it look as if we're highlighting the items */
+.footer-link:hover,
+.social-list__link:hover{
+    opacity: .7;
+}
+
+/* All of the social links, including lists and items */
+.social-list{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+/* The list of all the items*/
+.social-list__item{
+    margin: 0 0.75em;
+
+}
+/* Each individual list item being accessed */ 
+.social-list__link{
+    padding: 0.75em;
+
+}
