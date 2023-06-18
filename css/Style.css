@@ -133,7 +133,15 @@ h3{ font-size: var(--fs-h3);}
 }
 
 /* Different Work Selections wods */ 
-.section__subtitle--work{
+.section__subtitle--2dwork{
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 2em;
+}
+
+
+/* Different Work Selections wods */ 
+.section__subtitle--3dwork{
     color: var(--clr-accent);
     font-weight: var(--fw-bold);
     margin-bottom: 2em;
@@ -388,13 +396,20 @@ area titles that we've given them */
 }
 
 /* The class for my work where all of the images and everything is stored */
-.my-work{
+.my-3dwork{
     background-color: var(--clr-dark);
     color: var(--clr-light);
     text-align: center;
 
 }
 
+/* The class for my work where all of the images and everything is stored */
+.my-2dwork{
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+
+}
 /* We are creating a grid for the images
 then using repeat to create the different columns */
 .portfolio{
